@@ -14,7 +14,7 @@ logo() {
 
 	local text="${1:?}"
 	echo -en "                                 
-  Suno's dotfiles\n\n"
+  Keks's dotfiles\n\n"
 	printf ' %s [%s%s %s%s %s]%s\n\n' "${CRE}" "${CNC}" "${CYE}" "${text}"
 }
 
@@ -72,7 +72,10 @@ clear
 # Install packages
 logo "Installing needed packages"
 
-dependencies=(git github-desktop-bin zsh thunar feh rofi neovim gvfs thunar-volman openasar-git visual-studio-code-bin chromium spotify flameshot wps-office brightness-controller-git discord zip bzip2 lxappearance gotop htop ncmpcpp mpd figlet ranger playerctl tty-clock i3status picom-pijulius-git fzf exa i3-gaps polybar ibus ibus-bamboo xfce4-power-manager bluez bluez-utils bluman betterlockscreen ytdownloader-gui ttf-jetbrains-mono-nerd eww)
+dependencies=(git zsh kitty thunar feh rofi neovim gvfs thunar-volman visual-studio-code-bin brave spotify brightness-controller-git zip bzip2 lxappearance btop ncmpcpp mpd figlet ranger tty-clock i3status picom-allusive fzf exa i3-wm polybar xfce4-power-manager bluez bluez-utils bluman betterlockscreen ytdownloader-gui ttf-jetbrains-mono-nerd eww cava-git pfetch-rs-bin)
+
+#eww drop down menues, widgets
+#blueman - xfce bluetooth util
 
 is_installed() {
 	pacman -Qi "$1" &>/dev/null
@@ -92,12 +95,12 @@ sleep 1
 clear
 
 # Installing lolcat
-logo "Installing lolcat"
-cd
-rm -rf ~/lolcat
-git clone https://github.com/jaseg/lolcat.git && cd lolcat && make && sudo make install
-sleep 1 
-clear
+#logo "Installing lolcat"
+#cd
+#rm -rf ~/lolcat
+#git clone https://github.com/jaseg/lolcat.git && cd lolcat && make && sudo make install
+#sleep 1 
+#clear
 
 # Preparing folders
 logo "Preparing Folders"
