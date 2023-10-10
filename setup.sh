@@ -72,7 +72,7 @@ clear
 # Install packages
 logo "Installing needed packages"
 
-dependencies=(git zsh fish kitty thunar feh rofi neovim gvfs thunar-volman visual-studio-code-bin chromium spotify brightness-controller-git zip xborder-git lxappearance btop ncmpcpp mpd figlet ranger tty-clock i3status picom-allusive fzf exa i3-wm polybar xfce4-power-manager bluez bluez-utils betterlockscreen ttf-jetbrains-mono-nerd eww cava-git pfetch-rs-bin)
+dependencies=(git zsh kitty thunar nitrogen rofi neovim gvfs thunar-volman visual-studio-code-bin chromium brightness-controller-git zip xborder-git lxappearance btop ncmpcpp mpd figlet ranger i3status picom-allusive fzf exa i3-wm polybar xfce4-power-manager bluez bluez-utils betterlockscreen yt-dlp ttf-jetbrains-mono-nerd eww cava-git pfetch-rs-bin parole redshift)
 
 #eww drop down menues, widgets
 #blueman - xfce bluetooth util
