@@ -47,16 +47,16 @@ sleep 1
 clear
 
 # Installing X.Org 
-logo "Installing X.Org"
-sudo pacman -S --needed --noconfirm xorg xorg-drivers
-sleep 2 
-clear
+#logo "Installing X.Org"
+#sudo pacman -S --needed --noconfirm xorg xorg-drivers
+#sleep 2 
+#clear
 
 # Installing Pipewire (audio)
-logo "Installing Pipewire (audio)"
-yes y | sudo pacman -S --needed pipewire pipewire-pulse wireplumber
-sleep 2 
-clear
+#logo "Installing Pipewire (audio)"
+#yes y | sudo pacman -S --needed pipewire pipewire-pulse wireplumber
+#sleep 2 
+#clear
 
 # Installing yay
 logo "Installing yay and AUR packages"
@@ -72,7 +72,7 @@ clear
 # Install packages
 logo "Installing needed packages"
 
-dependencies=(git zsh kitty thunar nitrogen rofi neovim gvfs thunar-volman visual-studio-code-bin chromium brightness-controller-git zip xborder-git lxappearance btop ncmpcpp mpd figlet ranger i3status picom-allusive fzf exa i3-wm polybar xfce4-power-manager bluez bluez-utils betterlockscreen yt-dlp ttf-jetbrains-mono-nerd eww cava-git pfetch-rs-bin parole redshift)
+dependencies=(git alacritty zsh thunar nitrogen rofi neovim gvfs thunar-volman visual-studio-code-bin chromium brightness-controller-git zip xborder-git lxappearance btop ncmpcpp mpd figlet ranger i3status picom-allusive fzf exa i3-wm polybar xfce4-power-manager bluez bluez-utils betterlockscreen yt-dlp ttf-jetbrains-mono-nerd eww cava-git pfetch-rs-bin parole redshift)
 
 #eww drop down menues, widgets
 #blueman - xfce bluetooth util
@@ -116,15 +116,9 @@ clear
 # Downloading dotfiles
 logo "Downloading dotfiles"
 [ -d ~/dot ] && rm -rf ~/dot
-printf "Cloning rice from https://github.com/SunoBB/dot\n"
+printf "Cloning rice from https://github.com/Kulllerkeks/dot\n"
 cd
-git clone --depth=1 https://github.com/SunoBB/dot.git
-printf "Cloning rice from https://github.com/poyrudev/rofi-nord\n"
-cd
-git clone --depth=1 https://github.com/porudev/rofi-nord ~/.config/rofi-nord
-print f "Cloning rice from https://github.com/Fausto-Korpsvart/Material-GTK-Themes\n"
-cd
-git clone --depth=1 https://github.com/Fausto-Korpsvart/Material-GTK-Themes
+git clone --depth=1 https://github.com/Kulllerkeks/dot.git
 sleep 1
 clear
 
@@ -137,7 +131,7 @@ if [ ! -d "$backup_folder" ]; then
 	mkdir -p "$backup_folder"
 fi
 
-for folder in cava eww i3 i3status kitty mpd ncmpcpp neofetch nvim openbox picom polybar rofi tmux zsh; do
+for folder in cava eww i3 i3status kitty mpd ncmpcpp neofetch nvim openbox picom polybar rofi tmux zsh alacritty btop micro godot fish audacity redshift; do
 	if [ -d "$HOME/.config/$folder" ]; then
 		mv "$HOME/.config/$folder" "$backup_folder/${folder}_$date"
 		echo "$folder folder backed up successfully at $backup_folder/${folder}_$date"
@@ -179,15 +173,15 @@ for archivos in ~/dot/home/*; do
 	fi
 done
 
-for archivos in ~/dot/lxappearance/*; do
-	cp -R "${archivos}" ~/.icons/
-	if [ $? -eq 0 ]; then
-		printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-	else
-		printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-		sleep 1
-	fi
-done
+#for archivos in ~/dot/lxappearance/*; do
+#	cp -R "${archivos}" ~/.icons/
+#	if [ $? -eq 0 ]; then
+#		printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
+#	else
+#		printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
+#		sleep 1
+#	fi
+#done
 
 for archivos in ~/dot/.font/*; do
 	cp -R "${archivos}" ~/.fonts/
@@ -200,7 +194,7 @@ for archivos in ~/dot/.font/*; do
 done
 
 for archivos in ~/dot/background; do
-	cp -R "${archivos}" ~/
+	cp -R "${archivos}" ~/Pictures/
 	if [ $? -eq 0 ]; then
 		printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
 	else
@@ -209,15 +203,6 @@ for archivos in ~/dot/background; do
 	fi
 done
 
-for archivos in ~/Material-GTK-Themes/themes/*; do
-	cp -R "${archivos}" ~/.themes/
-	if [ $? -eq 0 ]; then
-		printf "%s%s%s folder copied succesfully!%s\n" "${BLD}" "${CGR}" "${archivos}" "${CNC}"
-	else
-		printf "%s%s%s failed to been copied, you must copy it manually%s\n" "${BLD}" "${CRE}" "${archivos}" "${CNC}"
-		sleep 1
-	fi
-done
 
 printf "%s%sDone!\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 1
@@ -259,22 +244,22 @@ sleep 1
 clear
 
 # Install LightDM
-logo "Installing LightDM"
-yay -S --needed --noconfirm lightdm lightdm-gtk-greeter
-printf "%s%sDone!\n\n" "${BLD}" "${CGR}" "${CNC}"
-sleep 1
+#logo "Installing LightDM"
+#yay -S --needed --noconfirm lightdm lightdm-gtk-greeter
+#printf "%s%sDone!\n\n" "${BLD}" "${CGR}" "${CNC}"
+#sleep 1
 
 # Disable currently enabled display manager
-if systemctl list-unit-files | grep enabled | grep -E 'gdm|lightdm|lxdm|lxdm-gtk3|sddm|slim|xdm'; then
-	echo "Disabling currently enabled display manager"
-	sudo systemctl disable $(systemctl list-unit-files | grep enabled | grep -E 'gdm|lightdm|lxdm|lxdm-gtk3|sddm|slim|xdm' | awk -F ' ' '{print $1}')
-fi
+#if systemctl list-unit-files | grep enabled | grep -E 'gdm|lightdm|lxdm|lxdm-gtk3|sddm|slim|xdm'; then
+#	echo "Disabling currently enabled display manager"
+#	sudo systemctl disable $(systemctl list-unit-files | grep enabled | grep -E 'gdm|lightdm|lxdm|lxdm-gtk3|sddm|slim|xdm' | awk -F ' ' '{print $1}')
+#fi
 
-echo "Enabling LightDM"
-sudo systemctl enable lightdm
-printf "%s%sDone!%s\n\n" "${BLD}" "${CGR}" "${CNC}"
-sleep 1
-clear
+#echo "Enabling LightDM"
+#sudo systemctl enable lightdm
+#printf "%s%sDone!%s\n\n" "${BLD}" "${CGR}" "${CNC}"
+#sleep 1
+#clear
 
 # Enabling services
 logo "Enabling services"
@@ -282,7 +267,7 @@ logo "Enabling services"
 systemctl --user enable mpd.service
 systemctl --user start mpd.service
 sudo systemctl enable NetworkManager
-systemctl --user enable pipewire pipewire-pulse wireplumber
+#systemctl --user enable pipewire pipewire-pulse wireplumber
 printf "%s%sDone!%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 1
 clear
@@ -294,9 +279,9 @@ printf "%s%sDone!%s\n\n" "${BLD}" "${CGR}" "${CNC}"
 sleep 1
 clear
 
-yay -S --noconfirm pipewire pipewire-pulse helvum pavucontrol pipewire-alsa 
-systemctl --user enable pipewire pipewire-pulse
-systemctl --user start pipewire pipewire-pulse
+#yay -S --noconfirm pipewire pipewire-pulse helvum pavucontrol pipewire-alsa 
+#systemctl --user enable pipewire pipewire-pulse
+#systemctl --user start pipewire pipewire-pulse
 
 
 

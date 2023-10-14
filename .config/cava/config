@@ -14,7 +14,7 @@
 # new as of 0.6.0 autosens of low values (dynamic range)
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
  autosens = 1
-; overshoot = 20
+; overshoot = 0
 
 # Manual sensitivity in %. Autosens must be turned off for this to take effect.
 # 200 means double height. Accepts only non-negative values.
@@ -100,16 +100,16 @@
 # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
 # Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires a
 # terminal that can change color definitions such as Gnome-terminal or rxvt.
-; background = black
-; foreground = cyan
+; background = #282828
+; foreground = #d65d0e
 
 # Gradient mode, only hex defined colors are supported, background must also be defined in hex
 # or remain commented out. 1 = on, 0 = off. Warning: for certain terminal emulators cava will
 # not able to restore color definitions on exit, simply restart your terminal to restore colors.
  gradient = 1
  gradient_count = 2
- gradient_color_1 =  '#90A7B9'
- gradient_color_2 = '#8C8D90'
+ gradient_color_1 =  '#d65d0e'
+ gradient_color_2 = '#8ec07c'
 
 
 image_source=
